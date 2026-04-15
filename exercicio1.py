@@ -150,23 +150,23 @@ tokens_summary = count_tokens_online("".join([m["content"] for m in final_contex
 
 
 # ─────────────────────────────────────────────
-# RELATÓRIO UNIFICADO PARA O LINKEDIN
+# UNIFIED REPORT FOR LINKEDIN
 # ─────────────────────────────────────────────
 
 print("\n" + "═"*60)
-print("🚀 LLM CONTEXT OPTIMIZATION DASHBOARD (50 MENSAGENS)")
+print("🚀 LLM CONTEXT OPTIMIZATION DASHBOARD (50 MESSAGES)")
 print("═"*60)
 
-print(f"\n1️⃣ BASELINE: ENVIO DO HISTÓRICO COMPLETO")
-print(f"   ├─ Expectativa (Offline - Tiktoken): {count_tokens_offline(texto_historico)} tokens")
-print(f"   └─ Custo Real (Online API):          {count_tokens_online(texto_historico)} tokens")
+print(f"\n1️⃣ BASELINE: FULL HISTORY SUBMISSION")
+print(f"   ├─ Expectation (Offline - Tiktoken): {count_tokens_offline(texto_historico)} tokens")
+print(f"   └─ Real Cost (Online API):           {count_tokens_online(texto_historico)} tokens")
 
-print("\n2️⃣ ESTRATÉGIA A: CONTEXT PRUNING")
-print(f"   ├─ Mensagens preservadas: {len(pruned_history)} de {len(conversation_history)}")
-print(f"   └─ Novo custo da chamada: {tokens_pruned} tokens")
+print("\n2️⃣ STRATEGY A: CONTEXT PRUNING")
+print(f"   ├─ Preserved messages: {len(pruned_history)} out of {len(conversation_history)}")
+print(f"   └─ New call cost:      {tokens_pruned} tokens")
 
-print("\n3️⃣ ESTRATÉGIA B: SUMMARIZATION BUFFER (AGENTE RESUMIDOR)")
-print(f"   ├─ Estrutura:             1 Resumo + {len(final_context)-1} Mensagens Recentes")
-print(f"   ├─ Novo custo da chamada: {tokens_summary} tokens")
-print(f"   └─ 💰 ECONOMIA TOTAL:     {count_tokens_online(texto_historico) - tokens_summary} tokens salvos por requisição!")
+print("\n3️⃣ STRATEGY B: SUMMARIZATION BUFFER (SUMMARIZER AGENT)")
+print(f"   ├─ Structure:          1 Summary + {len(final_context)-1} Recent Messages")
+print(f"   ├─ New call cost:      {tokens_summary} tokens")
+print(f"   └─ 💰 TOTAL SAVINGS:   {count_tokens_online(texto_historico) - tokens_summary} tokens saved per request!")
 print("\n" + "═"*60 + "\n")
