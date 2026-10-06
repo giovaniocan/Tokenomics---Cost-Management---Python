@@ -1,0 +1,7 @@
+# Holds the Gemini API key; the README tells readers to create it.
+.env
+
+__pycache__/
+*.pyc
+.venv/
+venv/
